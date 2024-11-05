@@ -1,0 +1,3 @@
+select p.Name, isnull(c.Name, '')
+from baseName.dbo.Products p 
+	left join baseName.dbo.Catrgories c on c.CategoryID = p.CategoryID
