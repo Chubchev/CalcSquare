@@ -1,0 +1,64 @@
+﻿<Window x:Class="TestCalcSquare.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestCalcSquare"
+        mc:Ignorable="d"
+        Title="Расчёт площади фигуры"  WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen" 
+        ResizeMode="NoResize" Height="auto" Width="auto" SizeToContent="WidthAndHeight">
+        <Window.Resources>
+            <!--Конвертеры-->
+            <local:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+        </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="400"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <RadioButton x:Name="radio_Circle"   Tag="0" Grid.Row="0" Margin="5" Content="Круг" Checked="OnType_Checked" IsChecked="True"/>
+            <RadioButton x:Name="radio_Triangle" Tag="1" Grid.Row="1" Margin="5" Content="Треугольник" Checked="OnType_Checked" />
+            <Button x:Name="button_Calc"  Grid.Row="2" Margin="5"  ToolTip="Запустить библиотеку расчёта площади фигуры" 
+                Click="CalcButton_Click"  Content="Расчёт"/>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Visibility="{Binding ElementName=radio_Circle, Path=IsChecked, Converter={StaticResource BoolToVisibilityConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Margin="5" Text="Введите радиус круга:" />
+                <TextBox Grid.Column="1" Margin="5" x:Name="textBox_Radius" />
+            </Grid>
+            <Grid Grid.Row="0" Visibility="{Binding ElementName=radio_Triangle, Path=IsChecked, Converter={StaticResource BoolToVisibilityConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Margin="5" Text="Введите длину сторон треугольника:" />
+                <TextBox Grid.Column="1" Margin="5" x:Name="textBox_A" />
+                <TextBox Grid.Column="2" Margin="5" x:Name="textBox_B" />
+                <TextBox Grid.Column="3" Margin="5" x:Name="textBox_C" />
+            </Grid>
+            <TextBlock Grid.Row="1" Margin="5" x:Name="textBlock_Result1" />
+            <TextBlock Grid.Row="2" Margin="5" x:Name="textBlock_Result2" />
+        </Grid>
+    </Grid>
+</Window>
