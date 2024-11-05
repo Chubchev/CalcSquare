@@ -5,7 +5,12 @@ VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestCalcSquare", "TestCalcSquare\TestCalcSquare.csproj", "{F12CC82E-84B0-4081-A90E-42788136B73B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalcSquare", "CalcSquare\CalcSquare.csproj", "{2F17953C-F0C4-424A-A894-0CDED3175133}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalcSquare", "CalcSquare\CalcSquare.csproj", "{2F17953C-F0C4-424A-A894-0CDED3175133}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{35D29AF8-2001-4CEE-8CD4-14F0D21AFC82}"
+	ProjectSection(SolutionItems) = preProject
+		Query.txt = Query.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
